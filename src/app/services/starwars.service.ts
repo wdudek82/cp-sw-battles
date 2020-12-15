@@ -51,7 +51,7 @@ export class StarWarsService {
     }
   }
 
-  fetchAndSaveLocally(resourceType: ResourceType): void {
+  private fetchAndSaveLocally(resourceType: ResourceType): void {
     /**
      *  Fetch data frm the swapi and store parsed results locally
      */
@@ -69,7 +69,7 @@ export class StarWarsService {
       .subscribe();
   }
 
-  fetchAllResourcesOfType(resourceType: ResourceType): Observable<Resource[]> {
+  private fetchAllResourcesOfType(resourceType: ResourceType): Observable<Resource[]> {
     /**
      * Fetch all pages of the selected resource,
      * and then combine the results in one array
@@ -94,7 +94,7 @@ export class StarWarsService {
     );
   }
 
-  fetchResourcesByPage(
+  private fetchResourcesByPage(
     resourceType: ResourceType,
     page: number,
   ): Observable<PageResponse> {
