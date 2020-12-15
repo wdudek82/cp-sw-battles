@@ -5,24 +5,31 @@
   <mat-radio-group
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
-    [(ngModel)]="selectedUnitType"
+    [(ngModel)]="selectedResourceType"
+    (ngModelChange)="resetBoard()"
   >
     <mat-radio-button
       class="example-radio-button"
-      *ngFor="let unitType of unitTypes"
-      [value]="unitType"
+      *ngFor="let resource of resourceTypes"
+      [value]="resource"
     >
-      {{ unitType }}
+      {{ resource | titlecase }}
     </mat-radio-button>
   </mat-radio-group>
 </div>
 
-<div>
-  <app-person [unitType]="selectedUnitType" [unitId]="1"></app-person>
-  <app-person [unitType]="selectedUnitType" [unitId]="2"></app-person>
-</div>
+<ng-container>
+  <div *ngIf="selectedResourceType === 'people'">
+    <app-person [person]="person1"></app-person>
+    <app-person [person]="person2"></app-person>
+  </div>
+  <div *ngIf="selectedResourceType === 'starships'">
+    <app-starship [starship]="starship1"></app-starship>
+    <app-starship [starship]="starship2"></app-starship>
+  </div>
+</ng-container>
 
 <div>
-  <button mat-raised-button color="primary">Select Units</button>
+  <button mat-raised-button color="primary" (click)="drawTwoOpponentsOfType(selectedResourceType)">Draw Opponents</button>
   <button mat-raised-button color="warn">Fight!</button>
 </div>
