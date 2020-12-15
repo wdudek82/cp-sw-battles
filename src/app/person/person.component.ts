@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { PersonRes } from "../models/person";
 import { StarWarsService } from "../services/starwars.service";
-import { StarshipRes } from "../models/starship";
+import { Starship } from "../models/starship";
+import { Person } from "../models/person";
 
 @Component({
   selector: "app-person",
@@ -13,8 +13,8 @@ export class PersonComponent implements OnInit {
   @Input() unitType = "";
   @Input() unitId = 0;
 
-  person$: Observable<PersonRes> = new Observable<PersonRes>();
-  starship$: Observable<StarshipRes> = new Observable<StarshipRes>();
+  person$: Observable<Person> = new Observable<Person>();
+  starship$: Observable<Starship> = new Observable<Starship>();
 
   constructor(private swService: StarWarsService) {}
 
