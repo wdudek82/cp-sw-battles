@@ -69,7 +69,9 @@ export class StarWarsService {
       .subscribe();
   }
 
-  private fetchAllResourcesOfType(resourceType: ResourceType): Observable<Resource[]> {
+  private fetchAllResourcesOfType(
+    resourceType: ResourceType,
+  ): Observable<Resource[]> {
     /**
      * Fetch all pages of the selected resource,
      * and then combine the results in one array
@@ -120,5 +122,18 @@ export class StarWarsService {
     return this.localStorageService.getLocalData("people") as Person[];
   }
 
-  // getRandomStarship():
+  getRandomStarship(): Starship {
+    return this.getRandomResourceOfType("starships") as Starship;
+  }
+
+  getRandomPerson(): Person {
+    return this.getRandomResourceOfType("people") as Person;
+  }
+
+  getRandomResourceOfType(resourceType: ResourceType): Resource {
+    const resources = this.localStorageService.getLocalData(resourceType);
+    const count = resources.length;
+    const randInd = Math.floor(Math.random() * (count - 1));
+    return resources[randInd];
+  }
 }
