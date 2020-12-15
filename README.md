@@ -3,6 +3,7 @@
 ## Build with:
 - Angular 11
 - Angular Material
+- ngx-toastr
 
 ## Tools
 - Prettier
