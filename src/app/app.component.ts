@@ -15,8 +15,6 @@ export class AppComponent implements OnInit {
 
   ship: any;
 
-  starships$: Observable<any> = new Observable();
-
   constructor(
     private swService: StarWarsService,
     private toastr: ToastrService,

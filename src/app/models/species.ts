@@ -1,4 +1,4 @@
-export interface SpeciesRes {
+export interface Species {
   average_height: string;
   average_lifespan: string;
   classification: string;
@@ -15,3 +15,4 @@ export interface SpeciesRes {
   skin_colors: string;
   url: string;
 }
+

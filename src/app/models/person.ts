@@ -1,5 +1,6 @@
-export interface PersonRes {
-  name: string;
+import { Resource } from "./resource";
+
+export interface Person extends Resource {
   birth_year: string;
   gender: string;
   hair_color: string;
@@ -9,11 +10,7 @@ export interface PersonRes {
   species: string[];
   homeworld: string;
   mass: string;
-  films: string[];
-  created: Date;
-  edited: Date;
   starships: string[];
-  url: string;
   vehicles: string[];
 }
 

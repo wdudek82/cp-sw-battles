@@ -1,103 +1,125 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { forkJoin, Observable, of } from "rxjs";
-import { StarshipRes } from "../models/starship";
+import { ResourceType, Starship } from "../models/starship";
 import { catchError, map, switchMap, tap } from "rxjs/operators";
 import { NotificationsService } from "./notifications.service";
+import { Person } from "../models/person";
+import { Resource } from "../models/resource";
+import { LocalstorageService } from "./localstorage.service";
 
-type Resource = "starships" | "people";
+interface PageResponse {
+  count: number;
+  next: string;
+  previous: string;
+  results: Resource[];
+}
 
 @Injectable({
   providedIn: "root",
 })
 export class StarWarsService {
   baseUrl = "https://swapi.dev/api";
+  resources: ResourceType[] = ["starships", "people"];
 
   constructor(
     private http: HttpClient,
+    private localStorageService: LocalstorageService,
     private notifications: NotificationsService,
   ) {
+    /**
+     * Fetch, parse and save the data when service instance is created
+     */
     this.fetchData();
   }
 
   fetchData(): void {
-    const resources: Resource[] = ["starships", "people"];
-    for (const resourceType of resources) {
-      if (this.isLocalCopyAvailable(resourceType)) {
+    /**
+     * Check if the resources are stored locally.
+     * If not initialize fetching the data from the swapi, otherwise ignore.
+     */
+    for (const resourceType of this.resources) {
+      const isLocalCopyAvailable = this.localStorageService.isLocalDataAvailable(
+        resourceType,
+      );
+      if (isLocalCopyAvailable) {
         this.notifications.showSuccess("Local copy found!", resourceType);
         continue;
       }
 
-      this.fetchAllResourcesOfType(resourceType)
-        .pipe(
-          tap((res) => {
-            this.saveLocalCopy(resourceType, res);
-            this.notifications.showSuccess("Fetching complete!", resourceType);
-          }),
-          catchError((error) => {
-            this.notifications.showError(error.message, resourceType);
-            throw new Error(error);
-          }),
-        )
-        .subscribe();
+      this.fetchAndSaveLocally(resourceType);
     }
   }
 
-  fetchAllResourcesOfType(resourceType: Resource): Observable<any> {
-    return this.http
-      .get<{ count: number; results: any[] }>(
-        `${this.baseUrl}/${resourceType}/`,
-      )
+  fetchAndSaveLocally(resourceType: ResourceType): void {
+    /**
+     *  Fetch data frm the swapi and store parsed results locally
+     */
+    this.fetchAllResourcesOfType(resourceType)
       .pipe(
-        switchMap((res) => {
+        tap((res) => {
+          this.localStorageService.saveLocalData(resourceType, res);
+          this.notifications.showSuccess("Fetching complete!", resourceType);
+        }),
+        catchError((error) => {
+          this.notifications.showError(error.message, resourceType);
+          throw new Error(error);
+        }),
+      )
+      .subscribe();
+  }
+
+  fetchAllResourcesOfType(resourceType: ResourceType): Observable<Resource[]> {
+    /**
+     * Fetch all pages of the selected resource,
+     * and then combine the results in one array
+     */
+    return this.http.get<PageResponse>(`${this.baseUrl}/${resourceType}/`).pipe(
+      switchMap(
+        (res): Observable<PageResponse[]> => {
           this.notifications.showInfo("Fetching data...", resourceType);
 
           const pages = Math.ceil(res.count / 10);
-          const results: Observable<any>[] = [of(res)];
+          const results: Observable<PageResponse>[] = [of(res)];
           for (let i = 2; i < pages + 1; i++) {
             results.push(this.fetchResourcesByPage(resourceType, i));
           }
 
           return forkJoin(results);
-        }),
-        map((responses) => {
-          return responses.flatMap((res) => res.results);
-        }),
-      );
-  }
-
-  fetchResourcesByPage(resourceType: Resource, page: number): Observable<any> {
-    return this.http.get<{ count: number; results: StarshipRes[] }>(
-      `${this.baseUrl}/${resourceType}/`,
-      { params: { page: page.toString() } },
+        },
+      ),
+      map((responses): Resource[] => {
+        return responses.flatMap((res) => res.results);
+      }),
     );
   }
 
-  saveLocalCopy(key: Resource, data: unknown[]): void {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
-
-  getLocalCopy(key: Resource): unknown[] {
-    const localData = localStorage.getItem(key) ?? "[]";
-    return JSON.parse(localData);
+  fetchResourcesByPage(
+    resourceType: ResourceType,
+    page: number,
+  ): Observable<PageResponse> {
+    /**
+     * Fetch specific page of the selected resource.
+     */
+    return this.http.get<PageResponse>(`${this.baseUrl}/${resourceType}/`, {
+      params: { page: page.toString() },
+    });
   }
 
   removeLocalCopies(): void {
     ["people", "starships"].forEach((key) => {
       this.notifications.showWarning("Local copy removed", key);
-      localStorage.removeItem(key);
+      this.localStorageService.removeLocalData(["people", "starships"]);
     });
   }
 
-  isLocalCopyAvailable(resourceType: Resource): boolean {
-    return this.getLocalCopy(resourceType).length > 0;
+  getStarships(): Starship[] {
+    return this.localStorageService.getLocalData("starships") as Starship[];
   }
 
-  getStarships(): unknown[] {
-    return this.getLocalCopy("starships");
+  getPeople(): Person[] {
+    return this.localStorageService.getLocalData("people") as Person[];
   }
 
-  getPeople(): unknown[] {
-    return this.getLocalCopy("people");
-  }
+  // getRandomStarship():
 }
