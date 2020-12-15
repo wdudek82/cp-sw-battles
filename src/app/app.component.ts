@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { StarWarsService } from "./services/starwars.service";
-import { Observable } from "rxjs";
-import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-root",
@@ -9,24 +7,12 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  title = "cp-sw-battles";
   unitTypes = ["People", "Starships"];
   selectedUnitType = "People";
 
   ship: any;
 
-  constructor(
-    private swService: StarWarsService,
-    private toastr: ToastrService,
-  ) {}
+  constructor(private swService: StarWarsService) {}
 
   ngOnInit(): void {}
-
-  loadData(): void {
-    this.swService.fetchData();
-  }
-
-  removeLocalData(): void {
-    this.swService.removeLocalCopies();
-  }
 }
