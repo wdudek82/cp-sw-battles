@@ -108,8 +108,7 @@ export class StarWarsService {
 
   removeLocalCopies(): void {
     ["people", "starships"].forEach((key) => {
-      this.notifications.showWarning("Local copy removed", key);
-      this.localStorageService.removeLocalData(["people", "starships"]);
+      this.localStorageService.removeLocalData(key);
     });
   }
 
