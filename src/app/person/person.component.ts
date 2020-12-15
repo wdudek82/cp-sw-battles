@@ -1,7 +1,4 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { StarWarsService } from "../services/starwars.service";
-import { Starship } from "../models/starship";
 import { Person } from "../models/person";
 
 @Component({
@@ -10,14 +7,9 @@ import { Person } from "../models/person";
   styleUrls: ["./person.component.scss"],
 })
 export class PersonComponent implements OnInit {
-  @Input() unitType = "";
-  @Input() unitId = 0;
+  @Input() person: Person | undefined;
 
-  person$: Observable<Person> = new Observable<Person>();
-  starship$: Observable<Starship> = new Observable<Starship>();
+  constructor() {}
 
-  constructor(private swService: StarWarsService) {}
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
