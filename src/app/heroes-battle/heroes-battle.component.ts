@@ -16,7 +16,7 @@ interface Opponent {
 })
 export class HeroesBattleComponent implements OnInit {
   @Output() duelResult: EventEmitter<number> = new EventEmitter<number>(); // -1 === draw
-  @Input() selectedOpponentType: ResourceType = "people";
+  selectedOpponentType: ResourceType = "people";
   opponentsTypes: ResourceType[] = ["people", "starships"];
   opponents: Person[] = [];
   isBattleSettled = false;
@@ -25,7 +25,7 @@ export class HeroesBattleComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  drawTwoOpponentsOfType(): void {
+  drawTwoOpponentsOfType(selectedResourceType: ResourceType): void {
     this.resetBoard();
 
     for (let i = 0; i < 2; i++) {
