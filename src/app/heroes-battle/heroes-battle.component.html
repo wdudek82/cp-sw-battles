@@ -1,0 +1,43 @@
+<div>
+  <label id="example-radio-group-label">Pick a unit type</label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="selectedOpponentType"
+    (ngModelChange)="resetBoard()"
+  >
+    <mat-radio-button
+      class="example-radio-button"
+      *ngFor="let type of opponentsTypes"
+      [value]="type"
+    >
+      {{ type | titlecase }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<div>
+  <app-heroes-card
+    *ngFor="let opponent of opponents"
+    [opponent]="opponent"
+    [opponentType]="selectedOpponentType"
+  ></app-heroes-card>
+</div>
+{{ selectedOpponentType }}
+<div>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="drawTwoOpponentsOfType(selectedOpponentType)"
+  >
+    Draw Opponents
+  </button>
+  <button
+    mat-raised-button
+    color="warn"
+    [disabled]="opponents.length === 0 || isBattleSettled"
+    (click)="fight()"
+  >
+    Fight!
+  </button>
+</div>

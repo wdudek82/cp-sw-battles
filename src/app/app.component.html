@@ -1,35 +1,11 @@
 <app-topbar></app-topbar>
 
 <div>
-  <label id="example-radio-group-label">Pick a unit type</label>
-  <mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    class="example-radio-group"
-    [(ngModel)]="selectedResourceType"
-    (ngModelChange)="resetBoard()"
-  >
-    <mat-radio-button
-      class="example-radio-button"
-      *ngFor="let resource of resourceTypes"
-      [value]="resource"
-    >
-      {{ resource | titlecase }}
-    </mat-radio-button>
-  </mat-radio-group>
+  <p>player1: {{ score1 }} | player2: {{ score2 }}</p>
 </div>
 
 <ng-container>
-  <div *ngIf="selectedResourceType === 'people'">
-    <app-person [person]="person1"></app-person>
-    <app-person [person]="person2"></app-person>
-  </div>
-  <div *ngIf="selectedResourceType === 'starships'">
-    <app-starship [starship]="starship1"></app-starship>
-    <app-starship [starship]="starship2"></app-starship>
-  </div>
+  <app-heroes-battle
+    (duelResult)="showBattleResult($event)"
+  ></app-heroes-battle>
 </ng-container>
-
-<div>
-  <button mat-raised-button color="primary" (click)="drawTwoOpponentsOfType(selectedResourceType)">Draw Opponents</button>
-  <button mat-raised-button color="warn">Fight!</button>
-</div>

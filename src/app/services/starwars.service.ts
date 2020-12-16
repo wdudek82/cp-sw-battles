@@ -30,10 +30,10 @@ export class StarWarsService {
     /**
      * Fetch, parse and save the data when service instance is created
      */
-    this.fetchData();
+    this.fetchData(false);
   }
 
-  fetchData(): void {
+  fetchData(notify = true): void {
     /**
      * Check if the resources are stored locally.
      * If not initialize fetching the data from the swapi, otherwise ignore.
@@ -43,7 +43,9 @@ export class StarWarsService {
         resourceType,
       );
       if (isLocalCopyAvailable) {
-        this.notifications.showSuccess("Local copy found!", resourceType);
+        if (notify) {
+          this.notifications.showSuccess("Local copy found!", resourceType);
+        }
         continue;
       }
 
