@@ -1,11 +1,6 @@
 <app-topbar></app-topbar>
 
-<div>
-  <p>player1: {{ score1 }} | player2: {{ score2 }}</p>
-</div>
-
-<ng-container>
-  <app-heroes-battle
-    (duelResult)="showBattleResult($event)"
-  ></app-heroes-battle>
-</ng-container>
+<app-game-board
+  style="text-align: center;"
+  (duelResult)="showBattleResult($event)"
+></app-game-board>

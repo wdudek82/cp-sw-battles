@@ -1,0 +1,19 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <div
+        mat-card-avatar
+        class="card-header-image"
+        [ngClass]="opponentType"
+      ></div>
+      <div style="display: flex; flex-direction: column; justify-content: center; width: 100%;">
+        <mat-card-title>{{ opponent.name }}</mat-card-title>
+
+        <mat-card-subtitle>
+          {{ opponent.commonValueLabel | titlecase }}:
+          {{ opponent.commonValue }}
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</div>

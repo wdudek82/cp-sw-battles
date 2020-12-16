@@ -1,0 +1,26 @@
+<div class="container">
+  <app-resource-menu
+    (resetBoard)="resetBoard()"
+    (resourceSelected)="selectedOpponentType = $event"
+    [selectedResourceType]="selectedOpponentType"
+  ></app-resource-menu>
+
+  <app-game-score [score1]="score1" [score2]="score2"></app-game-score>
+
+  <!-- cards -->
+  <div class="card-group">
+    <app-opponent-card
+      *ngFor="let opponent of opponents"
+      [opponent]="opponent"
+      [opponentType]="selectedOpponentType"
+      class="card"
+    ></app-opponent-card>
+  </div>
+
+  <app-game-menu
+    [opponentsLoaded]="opponents.length > 0"
+    [isBattleSettled]="isBattleSettled"
+    (drawOpponentsCards)="drawTwoOpponentsOfType()"
+    (fight)="fight()"
+  ></app-game-menu>
+</div>

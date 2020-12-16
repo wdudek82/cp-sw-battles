@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:400px;
+}
+
+.card {
+  margin-bottom: 1.5rem;
+}
+
+.margin-right {
+  margin-right: 0.8rem;
+}

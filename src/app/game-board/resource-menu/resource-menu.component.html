@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; justify-content: center;">
+  <label id="example-radio-group-label">Pick a unit type</label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    style="display: flex; justify-content: center;"
+    [(ngModel)]="selectedResourceType"
+    (ngModelChange)="onResetBoard()"
+    (change)="onResourceSelected()"
+  >
+    <mat-radio-button
+      class="example-radio-button"
+      *ngFor="let type of resourceTypes"
+      [value]="type"
+    >
+      {{ type | titlecase }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

@@ -16,15 +16,21 @@ import { ToastrModule } from "ngx-toastr";
 import { TopBarComponent } from "./topbar/top-bar.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
-import { HeroesBattleComponent } from "./heroes-battle/heroes-battle.component";
-import { HeroCardComponent } from "./heroes-battle/hero-card/hero-card.component";
+import { GameBoardComponent } from "./game-board/game-board.component";
+import { OpponentCardComponent } from "./game-board/opponent-card/opponent-card.component";
+import { ResourceMenuComponent } from "./game-board/resource-menu/resource-menu.component";
+import { GameScoreComponent } from "./game-board/game-score/game-score.component";
+import { GameMenuComponent } from './game-board/game-menu/game-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    HeroesBattleComponent,
-    HeroCardComponent,
+    GameBoardComponent,
+    OpponentCardComponent,
+    ResourceMenuComponent,
+    GameScoreComponent,
+    GameMenuComponent,
   ],
   imports: [
     BrowserModule,
