@@ -16,8 +16,8 @@ import { ToastrModule } from "ngx-toastr";
 import { TopBarComponent } from "./topbar/top-bar.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
-import { HeroesBattleComponent } from './heroes-battle/heroes-battle.component';
-import { HeroCardComponent } from './heroes-battle/hero-card/hero-card.component';
+import { HeroesBattleComponent } from "./heroes-battle/heroes-battle.component";
+import { HeroCardComponent } from "./heroes-battle/hero-card/hero-card.component";
 
 @NgModule({
   declarations: [
