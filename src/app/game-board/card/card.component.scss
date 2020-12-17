@@ -1,7 +1,7 @@
 .mat-card {
   margin-bottom: 1rem;
   width: 400px;
-  background-color: #f3e6d7;
+  background-color: #ffffb6;
 
   &.winner {
     color: darkgreen;
@@ -16,11 +16,13 @@
   background-size: cover;
 
   &.starships {
-    background-image: url("https://i.pinimg.com/originals/73/38/36/733836a6bd58f9b4fcdd46acd54f233d.png");
+    //background-image: url("https://i.pinimg.com/originals/73/38/36/733836a6bd58f9b4fcdd46acd54f233d.png");
+    background-image: url("https://comicvine1.cbsistatic.com/uploads/original/14/145389/4451460-6546422537-3-X-W.png");
   }
 
   &.people {
-    background-image: url("https://swgoh.gg/static/img/assets/tex.relic_rfl_phasma.png");
+    //background-image: url("https://swgoh.gg/static/img/assets/tex.relic_rfl_phasma.png");
+    background-image: url("https://swgoh.gg/static/img/assets/tex.relic_pst_han.png");
   }
 }
 
