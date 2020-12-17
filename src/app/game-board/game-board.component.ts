@@ -18,6 +18,8 @@ export class GameBoardComponent implements OnInit {
   score1 = 0;
   score2 = 0;
 
+  winner = -1;
+
   constructor(private swService: StarWarsService) {}
 
   ngOnInit(): void {}
@@ -50,9 +52,9 @@ export class GameBoardComponent implements OnInit {
     const commonValue1 = this.parse(this.opponents[0].commonValue);
     const commonValue2 = this.parse(this.opponents[1].commonValue);
 
-    const winner: number = this.compare(commonValue1, commonValue2);
+    this.winner = this.compare(commonValue1, commonValue2);
 
-    this.updateDuelResult(winner);
+    this.updateDuelResult(this.winner);
     this.isBattleSettled = true;
   }
 

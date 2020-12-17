@@ -1,40 +1,31 @@
-<div class="container">
-  <mat-card
-    style="
-      width: 600px;
-      height: 350px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-    "
-  >
-    <div>
-      <app-resource-menu
-        (resetBoard)="resetBoard()"
-        (resourceSelected)="selectedOpponentType = $event"
-        [selectedResourceType]="selectedOpponentType"
-      ></app-resource-menu>
+<mat-card class="game-board__container">
+  <div>
+    <app-resources-menu
+      (resetBoard)="resetBoard()"
+      (resourceSelected)="selectedOpponentType = $event"
+      [selectedResourceType]="selectedOpponentType"
+    ></app-resources-menu>
 
-      <app-game-score [score1]="score1" [score2]="score2"></app-game-score>
+    <app-game-score [score1]="score1" [score2]="score2"></app-game-score>
 
-      <!-- cards -->
-      <div class="card-group">
-        <app-opponent-card
-          *ngFor="let opponent of opponents"
-          [opponent]="opponent"
-          [opponentType]="selectedOpponentType"
-          class="card"
-        ></app-opponent-card>
-      </div>
+    <!-- cards -->
+    <div class="card-group">
+      <app-opponent-card
+        *ngFor="let opponent of opponents; let i = index;"
+        [opponent]="opponent"
+        [opponentType]="selectedOpponentType"
+        [isWinner]="isBattleSettled && winner === i"
+        class="card"
+      ></app-opponent-card>
+      <p *ngIf="isBattleSettled && winner === -1" class="undecided">Undecided</p>
     </div>
+  </div>
 
-    <app-game-menu
-      [opponentsLoaded]="opponents.length > 0"
-      [isBattleSettled]="isBattleSettled"
-      (drawOpponentsCards)="drawTwoOpponentsOfType()"
-      (fight)="fight()"
-      style="display: flex; justify-content: flex-end;"
-    ></app-game-menu>
-  </mat-card>
-</div>
+  <app-game-menu
+    [opponentsLoaded]="opponents.length > 0"
+    [isBattleSettled]="isBattleSettled"
+    (drawOpponentsCards)="drawTwoOpponentsOfType()"
+    (fight)="fight()"
+    style="display: flex; justify-content: flex-end"
+  ></app-game-menu>
+</mat-card>

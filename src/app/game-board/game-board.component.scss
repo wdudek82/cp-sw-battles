@@ -1,30 +1,25 @@
-.container {
+.game-board__container {
+  width: 600px;
+  height: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
-.example-radio-group {
-  display: flex;
-  flex-direction: row;
-  margin: 15px 0;
-}
-
-.example-radio-button {
-  margin: 5px;
-}
-
-.card-group {
+.card__group {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width:400px;
 }
 
-.card {
+.mat-card {
   margin-bottom: 1.5rem;
 }
 
-.margin-right {
-  margin-right: 0.8rem;
+.undecided {
+  color: #f86f00;
+  text-transform: uppercase;
+  font-weight: bold;
 }

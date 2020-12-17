@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { ResourceType } from "../../models/starship";
 
 @Component({
-  selector: "app-resource-menu",
-  templateUrl: "./resource-menu.component.html",
-  styleUrls: ["./resource-menu.component.scss"],
+  selector: "app-resources-menu",
+  templateUrl: "./resources-menu.component.html",
+  styleUrls: ["./resources-menu.component.scss"],
 })
-export class ResourceMenuComponent implements OnInit {
+export class ResourcesMenuComponent implements OnInit {
   @Output() resetBoard: EventEmitter<void> = new EventEmitter<void>();
   @Output() resourceSelected: EventEmitter<ResourceType> = new EventEmitter<ResourceType>();
   @Input() selectedResourceType: ResourceType = "people";

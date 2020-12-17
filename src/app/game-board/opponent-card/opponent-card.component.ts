@@ -10,6 +10,7 @@ import { OpponentDto } from "../../models/opponentDto";
 export class OpponentCardComponent implements OnInit {
   @Input() opponentType: ResourceType = "people";
   @Input() opponent: OpponentDto | undefined;
+  @Input() isWinner = false;
 
   constructor() {}
 
