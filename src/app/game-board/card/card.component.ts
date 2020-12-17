@@ -3,11 +3,11 @@ import { ResourceType } from "../../models/starship";
 import { OpponentDto } from "../../models/opponentDto";
 
 @Component({
-  selector: "app-opponent-card",
-  templateUrl: "./opponent-card.component.html",
-  styleUrls: ["./opponent-card.component.scss"],
+  selector: "app-card",
+  templateUrl: "./card.component.html",
+  styleUrls: ["./card.component.scss"],
 })
-export class OpponentCardComponent implements OnInit {
+export class CardComponent implements OnInit {
   @Input() opponentType: ResourceType = "people";
   @Input() opponent: OpponentDto | undefined;
   @Input() isWinner = false;

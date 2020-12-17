@@ -1,24 +1,32 @@
 <mat-card class="game-board__container">
+
   <div>
+    <div>Round: {{round}}</div>
+    <app-scores
+      [score1]="score1"
+      [score2]="score2"
+      (resetScore)="resetScore()"
+    ></app-scores>
+
     <app-resources-menu
       (resetBoard)="resetBoard()"
       (resourceSelected)="selectedOpponentType = $event"
       [selectedResourceType]="selectedOpponentType"
     ></app-resources-menu>
+  </div>
 
-    <app-game-score [score1]="score1" [score2]="score2"></app-game-score>
-
-    <!-- cards -->
-    <div class="card-group">
-      <app-opponent-card
-        *ngFor="let opponent of opponents; let i = index;"
-        [opponent]="opponent"
-        [opponentType]="selectedOpponentType"
-        [isWinner]="isBattleSettled && winner === i"
-        class="card"
-      ></app-opponent-card>
-      <p *ngIf="isBattleSettled && winner === -1" class="undecided">Undecided</p>
-    </div>
+  <!-- cards -->
+  <div class="card-group">
+    <app-card
+      *ngFor="let opponent of opponents; let i = index"
+      [opponent]="opponent"
+      [opponentType]="selectedOpponentType"
+      [isWinner]="isBattleSettled && winner === i"
+      class="card"
+    ></app-card>
+    <p class="undecided" [class.active]="isBattleSettled && winner === -1">
+      Undecided
+    </p>
   </div>
 
   <app-game-menu

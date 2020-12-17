@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+
+  .player {
+    &-one {
+      color: #6363ff;
+    }
+    &-two {
+      color: #f85252;
+    }
+
+  }
+
+  .score {
+    color: #4c4c4c;
+  }
+
+  p {
+    margin: 0;
+    line-height: 2;
+  }
+
+  .mat-fab {
+    width: 24px;
+    height: 24px;
+
+    .mat-icon {
+      &.material-icons {
+        font-size: 18px;
+      }
+    }
+
+    .mat-button-wrapper {
+      padding: 10px 0;
+    }
+  }
+}

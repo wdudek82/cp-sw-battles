@@ -15,6 +15,8 @@ export class GameBoardComponent implements OnInit {
 
   opponents: OpponentDto[] = [];
   isBattleSettled = false;
+
+  round = 0;
   score1 = 0;
   score2 = 0;
 
@@ -26,6 +28,7 @@ export class GameBoardComponent implements OnInit {
 
   drawTwoOpponentsOfType(): void {
     this.resetBoard();
+    this.round += 1;
 
     const opponent: OpponentDto = {
       name: "",
@@ -94,5 +97,11 @@ export class GameBoardComponent implements OnInit {
   resetBoard(): void {
     this.opponents = [];
     this.isBattleSettled = false;
+  }
+
+  resetScore(): void {
+    this.round = 0;
+    this.score1 = 0;
+    this.score2 = 0;
   }
 }

@@ -1,25 +1,27 @@
-.game-board__container {
+.mat-card {
   width: 600px;
-  height: 380px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-}
-
-.card__group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width:400px;
-}
-
-.mat-card {
   margin-bottom: 1.5rem;
 }
 
+.card-group {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+}
+
 .undecided {
-  color: #f86f00;
-  text-transform: uppercase;
-  font-weight: bold;
+  visibility: hidden;
+  margin-bottom: 0;
+
+  &.active {
+    visibility: visible;
+    color: #f86f00;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }

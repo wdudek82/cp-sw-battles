@@ -19,9 +19,9 @@ import { ToastrModule } from "ngx-toastr";
 import { TopBarComponent } from "./topbar/top-bar.component";
 
 import { GameBoardComponent } from "./game-board/game-board.component";
-import { OpponentCardComponent } from "./game-board/opponent-card/opponent-card.component";
+import { CardComponent } from "./game-board/card/card.component";
 import { ResourcesMenuComponent } from "./game-board/resources-menu/resources-menu.component";
-import { GameScoreComponent } from "./game-board/game-score/game-score.component";
+import { ScoresComponent } from "./game-board/scores/scores.component";
 import { GameMenuComponent } from "./game-board/game-menu/game-menu.component";
 
 @NgModule({
@@ -29,9 +29,9 @@ import { GameMenuComponent } from "./game-board/game-menu/game-menu.component";
     AppComponent,
     TopBarComponent,
     GameBoardComponent,
-    OpponentCardComponent,
+    CardComponent,
     ResourcesMenuComponent,
-    GameScoreComponent,
+    ScoresComponent,
     GameMenuComponent,
   ],
   imports: [
