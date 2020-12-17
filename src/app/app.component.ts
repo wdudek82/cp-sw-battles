@@ -14,8 +14,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {}
 
   showBattleResult(winnerIndex: number): void {
-    console.log("and the winner is:", winnerIndex);
-
     switch (winnerIndex) {
       case 0:
         this.score1 += 1;

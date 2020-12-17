@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { ResourceType, Starship } from "../models/starship";
 import { StarWarsService } from "../services/starwars.service";
 import { Person } from "../models/person";
@@ -42,11 +42,8 @@ export class GameBoardComponent implements OnInit {
         opponent.commonValue = starship.crew;
         opponent.commonValueLabel = "crew";
       }
-      console.log({...opponent});
       this.opponents.push({...opponent});
     }
-
-    console.log(this.opponents);
   }
 
   fight(): void {
@@ -54,9 +51,6 @@ export class GameBoardComponent implements OnInit {
     const commonValue2 = this.parse(this.opponents[1].commonValue);
 
     const winner: number = this.compare(commonValue1, commonValue2);
-
-    console.log("all known:", commonValue1, commonValue2);
-    console.log("fight:", winner);
 
     this.updateDuelResult(winner);
     this.isBattleSettled = true;
@@ -74,8 +68,6 @@ export class GameBoardComponent implements OnInit {
   }
 
   updateDuelResult(winnerIndex: number): void {
-    console.log("and the winner is:", winnerIndex);
-
     switch (winnerIndex) {
       case 0:
         this.score1 += 1;
