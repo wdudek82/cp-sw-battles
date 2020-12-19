@@ -6,21 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  score1 = 0;
-  score2 = 0;
-
   constructor() {}
 
   ngOnInit(): void {}
-
-  showBattleResult(winnerIndex: number): void {
-    switch (winnerIndex) {
-      case 0:
-        this.score1 += 1;
-        break;
-      case 1:
-        this.score2 += 1;
-        break;
-    }
-  }
 }
