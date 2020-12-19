@@ -16,18 +16,6 @@ describe("AppComponent", () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as score1 0`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.score1).toEqual(0);
-  });
-
-  it(`should have as score2 0`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.score2).toEqual(0);
-  });
-
   xit("should render title", () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
