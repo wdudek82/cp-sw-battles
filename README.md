@@ -12,8 +12,7 @@
 - Docker
 - docker-compose
 
-
-## Run in Docker
+## Docker
 
 ### Build Docker image
 ```bash
