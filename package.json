@@ -10,9 +10,9 @@
     "e2e": "ng e2e",
     "cypress:open": "./node_modules/.bin/cypress open",
     "cypress:run": "./node_modules/.bin/cypress run",
-    "start:prod": "http-server ./dist/cp-sw-battles -a localhost -p 4200",
+    "start:prod": "./node_modules/.bin/http-server ./dist/cp-sw-battles -a localhost -p 4200",
     "build:prod": "ng build --prod",
-    "build-and-start:prod": "run-s build:prod start:prod",
+    "build-and-start:prod": "./node_modules/.bin/run-s build:prod start:prod",
     "e2e:prod": "./node_modules/.bin/start-server-and-test build-and-start:prod http://localhost:4200 cypress:run"
   },
   "private": true,
