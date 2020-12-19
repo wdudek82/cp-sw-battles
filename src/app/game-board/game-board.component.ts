@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ResourceType, Starship } from "../models/starship";
 import { StarWarsService } from "../services/starwars.service";
 import { Person } from "../models/person";
