@@ -1,6 +1,6 @@
 # C&P SW Battles
 
-## Build with:
+## Built with:
 - Angular 11
 - Angular Material
 - ngx-toastr
