@@ -10,7 +10,6 @@ import { OpponentDto } from "../models/opponentDto";
   styleUrls: ["./game-board.component.scss"],
 })
 export class GameBoardComponent implements OnInit {
-  @Output() duelResult: EventEmitter<number> = new EventEmitter<number>(); // -1 === draw
   selectedOpponentType: ResourceType = "people";
 
   opponents: OpponentDto[] = [];
@@ -30,30 +29,28 @@ export class GameBoardComponent implements OnInit {
     this.resetBoard();
     this.round += 1;
 
-    const opponent: OpponentDto = {
-      name: "",
-      commonValue: "",
-      commonValueLabel: "",
-    };
     for (let i = 0; i < 2; i++) {
       if (this.selectedOpponentType === "people") {
         const person: Person = this.swService.getRandomPerson();
-        opponent.name = person.name;
-        opponent.commonValue = person.mass;
-        opponent.commonValueLabel = "mass";
+        this.createOpponent(person.name, person.mass, "mass");
       } else if (this.selectedOpponentType === "starships") {
         const starship: Starship = this.swService.getRandomStarship();
-        opponent.name = starship.name;
-        opponent.commonValue = starship.crew;
-        opponent.commonValueLabel = "crew";
+        this.createOpponent(starship.name, starship.crew, "crew");
       }
-      this.opponents.push({...opponent});
     }
   }
 
+  private createOpponent(name: string, value: string, label: string): void {
+    this.opponents.push({
+      name,
+      value,
+      label,
+    });
+  }
+
   fight(): void {
-    const commonValue1 = this.parse(this.opponents[0].commonValue);
-    const commonValue2 = this.parse(this.opponents[1].commonValue);
+    const commonValue1 = this.parse(this.opponents[0].value);
+    const commonValue2 = this.parse(this.opponents[1].value);
 
     this.winner = this.compare(commonValue1, commonValue2);
 
