@@ -3,6 +3,6 @@ services:
   cp-sw-battles:
     build:
       context: ./
-      dockerfile: ./docker/Dockerfile
+      dockerfile: docker/Dockerfile
     ports:
-      - 8080:80
+      - 8000:80

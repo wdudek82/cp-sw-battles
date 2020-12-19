@@ -5,16 +5,27 @@
 - Angular Material
 - ngx-toastr
 
-## Tools
-- Prettier
+## Testing
+- WIP
 
-## Docker
+## Other
+- Docker
+- docker-compose
 
-### Create an image
-- docker build . -t cp-sw-battles
 
-### Run a container
-- docker run -p 8080:80 cp-sw-battles
+## Run in Docker
+
+### Build Docker image
+```bash
+$ docker-compose build [--no-cache]
+```
+
+### Run Docker container
+```bash
+$ docker-compose build [--no-cache]
+$ docker-compose up [-d]
+```
+Application runs on http://localhost:8000
 
 ## Data source
 https://swapi.dev/ ([docs](https://swapi.dev/documentation))
