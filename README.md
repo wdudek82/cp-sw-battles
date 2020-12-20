@@ -21,7 +21,6 @@ $ docker-compose build [--no-cache]
 
 ### Run Docker container
 ```bash
-$ docker-compose build [--no-cache]
 $ docker-compose up [-d]
 ```
 Application runs on http://localhost:8000
