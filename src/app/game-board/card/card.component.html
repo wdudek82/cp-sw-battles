@@ -9,8 +9,15 @@
       <mat-card-title>{{ opponent.name }}</mat-card-title>
 
       <mat-card-subtitle>
-        {{ opponent.label | titlecase }}:
+        <ng-container [ngSwitch]="opponent.label">
+          <span *ngSwitchCase="'mass'" i18n>Mass</span>
+          <span *ngSwitchCase="'crew'" i18n>Crew</span>
+        </ng-container>
         {{ opponent.value }}
+        <ng-container [ngSwitch]="opponent.label">
+          <span *ngSwitchCase="'mass'" i18n="unit qualifier">kg</span>
+          <span *ngSwitchCase="'crew'" i18n="unit qualifier">people</span>
+        </ng-container>
       </mat-card-subtitle>
     </div>
   </mat-card-header>

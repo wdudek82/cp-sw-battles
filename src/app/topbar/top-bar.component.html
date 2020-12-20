@@ -2,10 +2,10 @@
   <mat-toolbar color="primary">
     <span>C&P Star Wars Battles</span>
     <span class="example-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu">Game Menu</button>
+    <button mat-button [matMenuTriggerFor]="menu" i18n>Game Menu</button>
     <mat-menu #menu="matMenu">
-      <button (click)="onLoadData()" mat-menu-item>Load data</button>
-      <button (click)="onRemoveLocalData()" mat-menu-item>Remove cached data</button>
+      <button (click)="onLoadData()" mat-menu-item i18n>Load data</button>
+      <button (click)="onRemoveLocalData()" mat-menu-item i18n>Remove cached data</button>
     </mat-menu>
   </mat-toolbar>
 </p>

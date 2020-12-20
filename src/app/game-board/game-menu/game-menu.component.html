@@ -4,6 +4,7 @@
     color="primary"
     class="mr"
     (click)="onDrawTwoOpponents()"
+    i18n
   >
     Draw
   </button>
@@ -12,6 +13,7 @@
     color="warn"
     [disabled]="!opponentsLoaded || isBattleSettled"
     (click)="onFight()"
+    i18n
   >
     Fight!
   </button>

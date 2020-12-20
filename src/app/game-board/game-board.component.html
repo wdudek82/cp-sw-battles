@@ -1,7 +1,8 @@
+<script src="../../polyfills.ts"></script>
 <mat-card class="game-board__container">
 
   <div>
-    <div>Round: {{round}}</div>
+    <div i18n>Round: {{round}}</div>
     <app-scores
       [score1]="score1"
       [score2]="score2"
@@ -24,7 +25,7 @@
       [isWinner]="isBattleSettled && winner === i"
       class="card"
     ></app-card>
-    <p class="undecided" [class.active]="isBattleSettled && winner === -1">
+    <p class="undecided" [class.active]="isBattleSettled && winner === -1" i18n>
       Undecided
     </p>
   </div>

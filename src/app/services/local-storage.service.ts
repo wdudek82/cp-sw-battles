@@ -5,7 +5,7 @@ import { NotificationsService } from "./notifications.service";
 @Injectable({
   providedIn: "root",
 })
-export class LocalstorageService {
+export class LocalStorageService {
   constructor(private notifications: NotificationsService) {}
 
   saveLocalData(key: string, data: Resource[]): void {

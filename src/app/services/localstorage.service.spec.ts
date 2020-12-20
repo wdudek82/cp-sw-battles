@@ -1,16 +1,20 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
+import { LocalStorageService } from "./local-storage.service";
+import { NotificationsService } from "./notifications.service";
 
-import { LocalstorageService } from './localstorage.service';
-
-describe('LocalstorageService', () => {
-  let service: LocalstorageService;
+describe("LocalStorageService", () => {
+  let localStorageService: LocalStorageService;
+  let notificationsService: NotificationsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(LocalstorageService);
+    TestBed.configureTestingModule({
+      providers: [NotificationsService],
+    });
+    localStorageService = TestBed.inject(LocalStorageService);
+    notificationsService = TestBed.inject(NotificationsService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it("should be created", () => {
+    expect(localStorageService).toBeTruthy();
   });
 });

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ef91563ce0b630a272c8342d23a33debe880e593" datatype="html" approved="no">
+        <source>Game Menu</source> <target state="needs-translation">Menu Gry</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/topbar/top-bar.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cdb3d1b9fb67873f41fe2c1556ec0d7b32ef055" datatype="html" approved="no">
+        <source>Load data</source>
+        <target state="needs-translation">Pobierz Dane</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/topbar/top-bar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c8500b8680b27e063e969c84618efc81598e26b" datatype="html" approved="no">
+        <source>Remove cached data</source>
+        <target state="needs-translation">Usuń zapisane dane</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/topbar/top-bar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ce5855f52a125bb892a21abb9722ed30111e941f" datatype="html" approved="no">
+        <source>Round: <x id="INTERPOLATION" equiv-text="{{round}}"/></source>
+        <target state="needs-translation">Runda <x id="INTERPOLATION" equiv-text="{{round}}"/></target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/game-board.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c21541c42aa0c81950841041dbf2dbfd697b2df3" datatype="html" approved="no">
+        <source> Undecided </source>
+        <target state="needs-translation">Nierozstrzygnięta</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/game-board.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="84d313dbc54ff752e751b5640a4fac163efcb57c" datatype="html" approved="no">
+        <source>Mass</source>
+        <target state="needs-translation">Waga</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/card/card.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6abbd4b5b63d400040dbd0df19311d3ecb7e0194" datatype="html" approved="no">
+        <source>Crew</source>
+        <target state="needs-translation">Załoga</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/card/card.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fcf969047ab677413509884ac54ab6780d7ffeb2" datatype="html" approved="no">
+        <source>kg</source>
+        <target state="needs-translation">kg</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/card/card.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">unit qualifier</note>
+      </trans-unit>
+      <trans-unit id="e8cad258289454311c296a02e0739b7b714e3f09" datatype="html" approved="no">
+        <source>people</source>
+        <target state="needs-translation">ludzie</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/card/card.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">unit qualifier</note>
+      </trans-unit>
+      <trans-unit id="4ee30b9285d5bf3610118b8b01d1731e0c4fed05" datatype="html" approved="no">
+        <source>People</source>
+        <target state="needs-translation">ludzie</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/resources-menu/resources-menu.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">resource</note>
+      </trans-unit>
+      <trans-unit id="bb8fd16e3e53e5969c93dabd6e49237e6d6e6e83" datatype="html" approved="no">
+        <source>Starships</source>
+        <target state="needs-translation">Statki</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/resources-menu/resources-menu.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">resource</note>
+      </trans-unit>
+      <trans-unit id="59bdc3dfa4075f92c734588899485db702c8f120" datatype="html" approved="no">
+        <source>Player</source>
+        <target state="needs-translation">Gracz</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/scores/scores.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/scores/scores.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2751da0fc87d87e0fe7b215487f1cb6928d1f8d8" datatype="html" approved="no">
+        <source> Reset Score
+</source>
+        <target state="needs-translation">Resetuj wynik</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/scores/scores.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7d5d279248c7239860964978d55d3913f41d90cb" datatype="html" approved="no">
+        <source>Draw</source> <target state="needs-translation">Losuj</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/game-menu/game-menu.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f6fe97baf388d63d91168be91c36d92d1efd8271" datatype="html" approved="no">
+        <source> Fight! </source>
+        <target state="needs-translation">Walka!</target><context-group purpose="location">
+          <context context-type="sourcefile">src/app/game-board/game-menu/game-menu.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -12,7 +12,10 @@
       *ngFor="let type of resourceTypes"
       [value]="type"
     >
-      {{ type | titlecase }}
+      <ng-container [ngSwitch]="type">
+        <span *ngSwitchCase="'people'" i18n="resource">People</span>
+        <span *ngSwitchCase="'starships'" i18n="resource">Starships</span>
+      </ng-container>
     </mat-radio-button>
   </mat-radio-group>
 </div>

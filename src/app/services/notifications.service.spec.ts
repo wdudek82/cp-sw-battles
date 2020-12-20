@@ -1,16 +1,21 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { NotificationsService } from './notifications.service';
+import { NotificationsService } from "./notifications.service";
+import { ToastrService } from "ngx-toastr";
 
-describe('NotificationsService', () => {
-  let service: NotificationsService;
+describe("NotificationsService", () => {
+  let notificationsService: NotificationsService;
+  let toastr: ToastrService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(NotificationsService);
+    TestBed.configureTestingModule({
+      providers: [NotificationsService, ToastrService],
+    });
+    notificationsService = TestBed.inject(NotificationsService);
+    toastr = TestBed.inject(ToastrService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it("should be created", () => {
+    expect(notificationsService).toBeTruthy();
   });
 });

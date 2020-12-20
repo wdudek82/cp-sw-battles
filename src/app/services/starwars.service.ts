@@ -6,7 +6,7 @@ import { catchError, map, switchMap, tap } from "rxjs/operators";
 import { NotificationsService } from "./notifications.service";
 import { Person } from "../models/person";
 import { Resource } from "../models/resource";
-import { LocalstorageService } from "./localstorage.service";
+import { LocalStorageService } from "./local-storage.service";
 
 interface PageResponse {
   count: number;
@@ -24,7 +24,7 @@ export class StarWarsService {
 
   constructor(
     private http: HttpClient,
-    private localStorageService: LocalstorageService,
+    private localStorageService: LocalStorageService,
     private notifications: NotificationsService,
   ) {
     /**
@@ -133,7 +133,7 @@ export class StarWarsService {
   }
 
   getRandomResourceOfType(resourceType: ResourceType): Resource {
-    const resources = this.localStorageService.getLocalData(resourceType);
+    const resources: Resource[] = this.localStorageService.getLocalData(resourceType);
     const count = resources.length;
     const randInd = Math.floor(Math.random() * (count - 1));
     return resources[randInd];
